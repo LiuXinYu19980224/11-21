@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script type="text/javascript">
+        window.onload=function(){
+            document.documentElement.style.fontSize=document.documentElement.clientWidth/1080*100+'px';
+            window.onresize=function(){
+                document.documentElement.style.fontSize=document.documentElement.clientWidth/1080*100+'px';
+            }
+        }
+    </script>
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+<div class="box">
+	<header>
+		<div class="header_in">
+			<div class="header_left">
+				<img src="img/1.jpg" alt=""> Notifications
+			</div>
+			<div class="header_right">
+				<img src="img/2.jpg" alt="">
+			</div>
+		</div>
+		<nav>
+			<ul>
+				<li>Friends</li>
+				<li>Following</li>
+				<li>Staff</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="main_in">
+			<ul>
+				<li>
+					<div>
+						<img src="img/3.jpg" alt="">
+					</div>
+					<div>
+						<p id="p1"></p>
+						<span id="span1"></span>
+					</div>
+					<div>
+						<img src="img/4.jpg" alt="" class="R1">
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="img/5.jpg" alt="">
+					</div>
+					<div>
+						<p id="p2"></p>
+						<span id="span2"></span>
+					</div>
+					<div>
+						<img src="img/6.jpg" alt="" class="R2">
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="img/7.jpg" alt="">
+					</div>
+					<div>
+						<p id="p3"></p>
+						<span id="span3"></span>
+					</div>
+					<div>
+						<img src="img/8.jpg" alt="" class="R3">
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="img/9.jpg" alt="">
+					</div>
+					<div>
+						<p id="p4"></p>
+						<span id="span4"></span>
+					</div>
+					<div>
+						<img src="img/10.jpg" alt="" class="R4">
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="img/11.jpg" alt="">
+					</div>
+					<div>
+						<p id="p5"></p>
+						<span id="span5"></span>
+					</div>
+					<div>
+						<img src="img/12.jpg" alt="" class="R5">
+					</div>
+				</li>
+				<li>
+					<div>
+						<img src="img/13.jpg" alt="">
+					</div>
+					<div>
+						<p id="p6"></p>
+						<span id="span6"></span>
+					</div>
+					<div>
+						<img src="img/14.jpg" alt="" class="R6">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</main>
+</div>
+</body>
+</html>
+
+<script>
+	var xhr=new XMLHttpRequest();
+	xhr.open("POST","data.json",true);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.responseType="json";
+	xhr.send();
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4){
+			if(xhr.status >= 200 && xhr.status<300 || xhr.status== 304){
+				console.log(xhr.response);
+				var data=xhr.response;
+				p1.innerHTML=data[0].title;
+				span1.innerHTML=data[0].time;
+				p2.innerHTML=data[1].title;
+				span2.innerHTML=data[1].time;
+				p3.innerHTML=data[2].title;
+				span3.innerHTML=data[2].time;
+				p4.innerHTML=data[3].title;
+				span4.innerHTML=data[3].time;
+				p5.innerHTML=data[4].title;
+				span5.innerHTML=data[4].time;
+				p6.innerHTML=data[5].title;
+				span6.innerHTML=data[5].time;
+			}
+		}
+	}
+
+
+
+</script>
